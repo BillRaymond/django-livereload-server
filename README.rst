@@ -61,6 +61,22 @@ In the browser's address bar access your web app by doing::
 
 now every time you hit save in your editor, the django-development-server/livereload-server automatically updates the staticfiles
 
+Usage with a shell script
+-------------------------
+To simplify the startup process, you can run create a Bash shell script that will run ``livereload`` and ``runserver`` with a single command.
+
+Create a shell file in the same folder as your ``manage.py`` file and name it as you like, such as ``start.sh``. Add the following text inside the shell file like this::
+
+  #!/bin/sh
+    /bin/sh -ec 'python3 manage.py livereload &'
+    /bin/sh -ec 'python3 manage.py runserver'
+
+After you save the file, open a terminal, ``cd`` into the folder that contains ``manage.py``. Assuming you used ``start.sh`` as a filename, type the following command::
+
+  sh start.sh
+
+That process should start the ``liveserver`` and ``runserver`` at the same time. 
+
 Customization
 -------------
 
